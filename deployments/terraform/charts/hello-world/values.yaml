@@ -8,6 +8,18 @@ image:
   repository: ${deployment_image}
   pullPolicy: IfNotPresent
 
+app:
+  ports: 5000
+
+globalEnvironments:
+  enbled: true
+  environments:
+    name: ENVIRONMENT
+    value: PROD
+    
+    name: POD_NAME
+    value: default
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -15,6 +27,8 @@ fullnameOverride: ""
 service:
   type: ClusterIP
   port: 80
+
+
 
 ingress:
   enabled: true
